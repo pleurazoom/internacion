@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ordenes de Internacion</title>
+</head>
+<body>
+<p>Redirigiendo a la aplicacion...</p>
+<p id="fallback" style="display:none">Si no redirige automaticamente, <a id="fallbackLink" href="https://gratuit-tank-drawing-seen.trycloudflare.com">click aqui</a>.</p>
+<script>
+var targetUrl = '';
+fetch('url.txt?v=' + Date.now())
+  .then(function(r) { return r.text(); })
+  .then(function(u) {
+    u = u.trim();
+    if (u.startsWith('http')) {
+      targetUrl = u;
+      document.getElementById('fallbackLink').href = u;
+      document.getElementById('fallback').style.display = '';
+      window.location.replace(u);
+    }
+  })
+  .catch(function() {
+    document.getElementById('fallbackLink').href = 'https://gratuit-tank-drawing-seen.trycloudflare.com';
+    document.getElementById('fallback').style.display = '';
+  });
+setTimeout(function() {
+  if (!targetUrl) { window.location.replace('https://gratuit-tank-drawing-seen.trycloudflare.com'); }
+}, 3000);
+</script>
+</body>
+</html>
